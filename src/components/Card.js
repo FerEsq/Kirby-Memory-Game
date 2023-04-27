@@ -1,15 +1,32 @@
 import React, { useState } from 'react';
 import "./Card.css";
-import backImage from './media/back.png';
+import back from '../media/back.png';
 
-function Card({frontImage}) {
-  const [currentImage, setCurrentImage] = useState(backImage);
+function Card({card, handleSelect, flipped, disabled}) {
 
-  function handleClick() {
-    setCurrentImage(currentImage === backImage ? frontImage : backImage);
+  const handleClick = () =>{
+    if (!disabled){
+      handleSelect(card)
+    }
   }
 
-  return <img src={currentImage} width={192} onClick={handleClick} />;
+  return (
+    <div className="card" >
+      <div className={flipped ? "flipped" : ""}>
+        <img 
+          className="frontCard" 
+          src={card.src} 
+        />
+
+        <img 
+          className="backCard" 
+          src={back} 
+          onClick={handleClick}
+        />
+      </div>
+    </div>
+
+  )
 }
 
 export default Card

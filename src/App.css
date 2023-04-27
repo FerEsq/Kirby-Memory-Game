@@ -1,3 +1,39 @@
+body{
+  background-color: #E36588;
+}
+
 h1 {
-    color: purple;
-  }
+  color: #92A1F1;
+  border-bottom: 0px;
+}
+
+.cardGrid {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 10px;
+}
+
+.swal-title {
+  font-family: Arial, sans-serif;
+}
+
+.swal-text {
+  font-family: Arial, sans-serif;
+}
+
+.swal-icon img {
+  width: 116px;
+  height: 84px;
+}
+
+.swal-button {
+  background-color: #E36588;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
