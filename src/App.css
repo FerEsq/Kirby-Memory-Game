@@ -1,10 +1,12 @@
+
 body{
   background-color: #E36588;
 }
 
-h1 {
-  color: #92A1F1;
-  border-bottom: 0px;
+h2 {
+  color: #FFEB3E;
+  font-size: 20px;
+  font-family: 'Courier New', monospace;
 }
 
 .cardGrid {
@@ -15,11 +17,11 @@ h1 {
 }
 
 .swal-title {
-  font-family: Arial, sans-serif;
+  font-family: 'Courier New', monospace;
 }
 
 .swal-text {
-  font-family: Arial, sans-serif;
+  font-family: 'Courier New', monospace;
 }
 
 .swal-icon img {
@@ -29,6 +31,7 @@ h1 {
 
 .swal-button {
   background-color: #E36588;
+  font-family: 'Courier New', monospace;
 }
 
 .container {
@@ -36,4 +39,26 @@ h1 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.imgTitle {
+  width: 421px;
+  height: 40px;
+  margin-top: 10px;
+}
+
+.restartButton {
+	background-color:#6479f1;
+	border-radius:28px;
+	border:2px solid #ffffff;
+	display:inline-block;
+  color: #ffffff;
+	cursor:pointer;
+	font-family: 'Courier New', monospace;
+	font-size:15px;
+	padding:5px 10px;
+}
+
+.restartButton:hover {
+	background-color:#92a0f1;
 }

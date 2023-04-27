@@ -1,7 +1,10 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import swal from 'sweetalert'
+
+//Carta
 import Card from "./components/Card";
+//Imagenes para las cartas
 import blue from './media/blue.png';
 import brown from './media/brown.png';
 import green from './media/green.png';
@@ -10,7 +13,9 @@ import purple from './media/purple.png';
 import red from './media/red.png';
 import white from './media/white.png';
 import yellow from './media/yellow.png';
+import title from './media/title.png';
 
+//Datos de las cartas (imagen, bandera para ver si ya se hizo la pareja)
 const cardImages = [
   {"src": blue, paired: false},
   {"src": brown, paired: false},
@@ -23,12 +28,14 @@ const cardImages = [
 ];
 
 function App() {
+  //Estados
   const [cards, setCards] = useState([])
   const [moves, setMoves] = useState(0)
   const [selectedOne, setSelectedOne] = useState(null)
   const [selectedTwo, setSelectedTwo]= useState(null)
   const [disabled, setDisabled] = useState(false)
 
+  //Función para mezclar las cartas
   const mixCards = () => {
     const mixedCards = [...cardImages, ...cardImages]
     .sort (() => Math.random() - 0.5)
@@ -40,10 +47,12 @@ function App() {
     setMoves(0)
   }
 
+  //Función al darle click a una carta
   const handleSelect = (card) =>{
     selectedOne ? setSelectedTwo(card) : setSelectedOne(card)
   }
 
+  //Para voltear las cartas
   useEffect (() => {
     if (selectedOne && selectedTwo){
       setDisabled(true)
@@ -68,9 +77,7 @@ function App() {
     }
   }, [selectedOne, selectedTwo])
 
-  //console.log(cards)
-
-  // reset choices & increase turn
+  //Función ara resetear las cartas y aumentar los movimientos
   const resetMove = () => {
     setSelectedOne(null)
     setSelectedTwo(null)
@@ -78,19 +85,19 @@ function App() {
     setDisabled(false)
   }
 
-  // start a new game automagically
+  //Iniciar el juego al iniciar la página
   useEffect (() => {
     mixCards()
   }, [])
 
-  let contador = 0;
 
+  //Para poner el alert cuando ganó
+  let contador = 0;
   for (let i = 0; i < cards.length; i++) {
     if (cards[i].paired) { 
       contador = contador + 1
     }
   }
-
   if (contador === 16) {
     setTimeout(function() {
       swal({
@@ -101,14 +108,12 @@ function App() {
       });
     }, 1000);
   }
-  
-
 
   return (
     <div className='container'>
-      <h1> Memoria </h1>
-      <h3> Moves: {moves} </h3>
-      <button onClick={mixCards}> Nuevo Juego </button>
+      <img src={title} className='imgTitle'/>
+      <h2> Moves: {moves} </h2>
+      <button onClick={mixCards} className='restartButton'> Restart </button>
 
       <div className='cardGrid'>
         {cards.map(card => (
@@ -121,9 +126,6 @@ function App() {
           />
         ))}
       </div>
-      
-      
-
     </div>
   )
 };

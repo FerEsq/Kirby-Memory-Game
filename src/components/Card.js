@@ -4,6 +4,7 @@ import back from '../media/back.png';
 
 function Card({card, handleSelect, flipped, disabled}) {
 
+  //Al darle click a la carta
   const handleClick = () =>{
     if (!disabled){
       handleSelect(card)
