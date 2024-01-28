@@ -1,9 +1,8 @@
-# Lab-08
-STW
+# Kirby Memory Game
 
-Para iniciar webpack:
-- Modo developer: npm run start-dev
-- Modo production: npm run start-prod
+To start webpack:
+- Developer mode: npm run start-dev
+- Production mode: npm run start-prod
 
-Link de firebase:
+Game link:
 - https://stw-23.web.app
